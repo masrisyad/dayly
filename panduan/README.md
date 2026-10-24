@@ -16,5 +16,6 @@ Buka aplikasinya di: **https://masrisyad.github.io/dayly/**
 7. [Backup & pindah HP](07-backup-dan-pindah-hp.md)
 8. [Pembaruan aplikasi](08-pembaruan-aplikasi.md)
 9. [Tanya jawab (FAQ)](09-faq.md)
+10. [Bagikan sebagai gambar](10-bagikan-gambar.md)
 
-Panduan ini berlaku untuk **Dayly versi 1.1.1**. Riwayat perubahan ada di [CHANGELOG](../docs/CHANGELOG.md).
+Panduan ini berlaku untuk **Dayly versi 1.2.0**. Riwayat perubahan ada di [CHANGELOG](../docs/CHANGELOG.md).

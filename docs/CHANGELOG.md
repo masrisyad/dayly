@@ -8,6 +8,22 @@ Kategori: **Ditambahkan**, **Diubah**, **Diperbaiki**, **Dihapus**, **Keamanan**
 
 ## [Belum dirilis]
 
+## [1.2.0] - 2026-10-25
+
+### Ditambahkan
+- **Bagikan sebagai gambar** di halaman **Harian** dan **Mingguan**. Tombol tujuan: Simpan ke perangkat, WhatsApp Chat (Post 4:5), WhatsApp Status, Instagram Story, dan TikTok (Story 9:16). Gambar diserahkan lewat menu berbagi HP; aplikasi web tidak bisa memposting langsung ke aplikasi tersebut.
+- Gambar bertema *daily task* berisi avatar & "Planner {nama}", judul, tanggal/minggu, progres, kartu-kartu bagian, dan watermark Dayly + alamat aplikasi.
+- Harian: pilihan isi gambar (bawaan Prioritas, Tugas, Jadwal, Air; Pengingat & Catatan opt-in), diingat di perangkat.
+- Pratinjau Story/Post di panel berbagi. Jika browser tidak mendukung menu berbagi, gambar diunduh.
+
+### Diubah
+- Warna & ikon label hari Mingguan dipusatkan di `shareContent.ts` agar gambar dan halaman selalu sama.
+- Logika unduh file dipindah ke `src/lib/download.ts` (dipakai backup dan berbagi gambar).
+
+### Dokumentasi
+- `docs/berbagi-gambar.md` (baru), `docs/README.md`, `docs/arsitektur.md`.
+- Panduan bab 10 "Bagikan sebagai gambar", serta tautan di Mingguan, Harian, dan FAQ.
+
 ## [1.1.1] - 2026-10-24
 
 ### Diperbaiki
@@ -57,7 +73,8 @@ Rilis pertama, di-deploy ke https://masrisyad.github.io/dayly/.
 - Footer kredit dengan tautan GitHub & LinkedIn.
 - Deploy otomatis ke GitHub Pages lewat GitHub Actions (test → build → deploy).
 
-[Belum dirilis]: https://github.com/masrisyad/dayly/compare/v1.1.1...HEAD
+[Belum dirilis]: https://github.com/masrisyad/dayly/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/masrisyad/dayly/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/masrisyad/dayly/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/masrisyad/dayly/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/masrisyad/dayly/releases/tag/v1.0.0

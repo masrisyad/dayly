@@ -10,6 +10,10 @@ Semua isian **tersimpan otomatis** sekitar setengah detik setelah kamu berhenti 
 - Atau ketuk **‹** / **›** untuk hari sebelumnya/berikutnya.
 - Tombol **Hari ini** muncul jika kamu sedang melihat tanggal lain.
 
+## Bagikan
+
+Ketuk **Bagikan** di bawah navigasi tanggal untuk membagikan hari ini sebagai gambar. Kamu bisa memilih bagian mana saja yang ikut. Lihat [Bagikan sebagai gambar](10-bagikan-gambar.md).
+
 ## Bagian-bagian
 
 | Bagian | Cara pakai |

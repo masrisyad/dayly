@@ -37,6 +37,9 @@ src/
     image.ts          resize foto profil
     install.ts        deteksi iOS/standalone & prompt install Android
     assets.ts         daftar & URL ilustrasi
+    download.ts       unduh file & Web Share (berkas)
+    shareContent.ts   data Harian/Mingguan → isi gambar berbagi
+    shareImage.ts     menggambar isi berbagi di canvas → PNG (lihat berbagi-gambar.md)
   i18n/               kamus en.ts / id.ts + provider
   components/         komponen UI bersama
   pages/              Onboarding, Lock, Home, Weekly, Daily, Settings

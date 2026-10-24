@@ -1,6 +1,7 @@
 import { db, type CalendarEvent, type Day, type Month, type Profile, type Task } from './db';
 import { todayISO } from '../lib/dates';
 import { migratedWeekKey } from '../lib/weeks';
+import { downloadFile } from '../lib/download';
 
 export const BACKUP_APP = 'dayly';
 /** 1 = v1.0.0 (month-chunk weeks), 2 = v1.1.0+ (Mon–Fri weeks keyed by Monday). */
@@ -128,13 +129,6 @@ export async function downloadBackup(): Promise<'shared' | 'downloaded' | 'cance
       // any other share failure falls through to a plain download
     }
   }
-  const url = URL.createObjectURL(file);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 10_000);
+  downloadFile(file);
   return 'downloaded';
 }

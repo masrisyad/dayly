@@ -9,6 +9,7 @@ Panduan untuk **pengguna** ada di folder [`../panduan`](../panduan/README.md).
 | [model-data.md](model-data.md) | Skema IndexedDB (Dexie), aturan minggu, perhitungan progres |
 | [backup.md](backup.md) | Format file backup, ekspor/impor, migrasi versi |
 | [pwa-dan-update.md](pwa-dan-update.md) | Service worker, mode offline, banner versi baru, catatan iOS |
+| [berbagi-gambar.md](berbagi-gambar.md) | Bagikan Harian/Mingguan sebagai gambar: batasan platform, tujuan, pembuat gambar canvas |
 | [tampilan.md](tampilan.md) | Token tema, ilustrasi, breakpoint HP/tablet/landscape, safe area |
 | [i18n.md](i18n.md) | Sistem bahasa (ID/EN) dan cara menambah bahasa |
 | [deploy-dan-rilis.md](deploy-dan-rilis.md) | GitHub Pages, workflow CI, aturan versi & cara merilis |

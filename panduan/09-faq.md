@@ -30,6 +30,9 @@ Sejak versi 1.1.0, jadwal hanya menampilkan jam 09:00–20:00. Isian di jam lain
 **Apakah Pengingat mengirim notifikasi?**
 Tidak. Pengingat hanya berupa catatan.
 
+**Bisakah Dayly langsung posting ke Instagram Story atau TikTok?**
+Dayly menyiapkan gambar dengan ukuran Story yang pas, lalu membuka menu berbagi HP. Di menu itu kamu memilih Instagram/TikTok/WhatsApp. Aplikasi web tidak diizinkan memposting langsung. Lihat [Bagikan sebagai gambar](10-bagikan-gambar.md).
+
 **Bagaimana menghapus tugas?**
 Ketuk ✕ di ujung baris tugas, atau hapus semua teksnya.
 

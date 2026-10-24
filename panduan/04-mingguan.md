@@ -28,6 +28,10 @@ Tugas di kartu hari **sama** dengan Daftar Tugas di halaman [Harian](05-harian.m
 
 Sabtu dan Minggu tidak ditampilkan di halaman Mingguan. Kamu tetap bisa mengisi tugas akhir pekan lewat halaman **Harian**, tetapi tugas tersebut **tidak dihitung** dalam progres minggu (hanya di % total bulanan).
 
+## Bagikan
+
+Ketuk **Bagikan** di bawah navigasi minggu untuk membagikan minggu ini sebagai gambar (Simpan, WhatsApp, Instagram Story, TikTok). Lihat [Bagikan sebagai gambar](10-bagikan-gambar.md).
+
 ## Self Care
 
 Kartu **Self Care** berisi hal-hal untuk merawat diri selama minggu itu, tidak terikat hari tertentu. Cara memakainya sama seperti kartu hari.

@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addTask, byOrder } from '../db/repo';
@@ -9,10 +10,9 @@ import { type AssetName } from '../lib/assets';
 import { Card, Deco } from '../components/Card';
 import { ProgressBar } from '../components/Progress';
 import { TaskList } from '../components/TaskList';
+import { ShareButton, ShareSheet } from '../components/ShareSheet';
+import { buildWeeklyContent, WEEKDAY_ICONS, WEEKDAY_TONES } from '../lib/shareContent';
 
-// Monday–Friday, following the weekly design's label colours.
-const LABEL_TONES = ['mint', 'pink', 'mint', 'pink', 'lavender'] as const;
-const LABEL_ICONS: AssetName[] = ['daisy', 'flower', 'daisy', 'flower', 'purple-flower'];
 const CORNER_DECOS: (AssetName | null)[] = ['plant', null, 'tulip', null, 'star'];
 
 /** Accepts a Monday key, or an old v1.0.0 'YYYY-MM-W1' link; anything else falls back to this week. */
@@ -30,6 +30,8 @@ export default function Weekly() {
   const week = getWeek(resolveWeekKey(params.week, currentKey));
   const go = (k: string) => navigate(k === currentKey ? '/weekly' : `/weekly/${k}`, { replace: true });
 
+  const [sharing, setSharing] = useState(false);
+  const closeShare = useCallback(() => setSharing(false), []);
   const data = useLiveQuery(() => loadMonth(week.monthKey), [week.monthKey]);
   if (!data) return null;
 
@@ -75,7 +77,26 @@ export default function Weekly() {
           </button>
         )}
       </div>
+      <div className="share-row">
+        <ShareButton onClick={() => setSharing(true)} />
+      </div>
       <ProgressBar percent={progress.percent} label={fmt(t.home.complete, { n: progress.percent })} />
+      {sharing && (
+        <ShareSheet
+          build={(ctx) =>
+            buildWeeklyContent(
+              ctx,
+              week,
+              tasks,
+              progress.percent,
+              `${fmt(t.weekly.week, { n: week.number })} · ${fmtDate(mon, { month: 'long' })} · ${rangeLabel}`,
+              today,
+            )
+          }
+          fileBase={`dayly-week-${week.key}`}
+          onClose={closeShare}
+        />
+      )}
 
       <div className="grid-2 collapse-sm" style={{ marginTop: 34 }}>
         {week.dates.map((d, i) => {
@@ -83,7 +104,7 @@ export default function Weekly() {
           // Name the month on a Friday that spills into the next month.
           const label = fmtDate(d, monthKeyOf(d) === week.monthKey ? { weekday: 'long', day: 'numeric' } : { weekday: 'long', day: 'numeric', month: 'short' });
           return (
-            <Card key={d} tone={d === today ? 'active' : 'cream'} labelTone={LABEL_TONES[i]} labelIcon={LABEL_ICONS[i]} label={label}>
+            <Card key={d} tone={d === today ? 'active' : 'cream'} labelTone={WEEKDAY_TONES[i]} labelIcon={WEEKDAY_ICONS[i]} label={label}>
               {deco && <Deco name={deco} size={40} style={{ right: -6, bottom: -10 }} />}
               <TaskList tasks={byDate(d)} minRows={3} onAdd={(text) => addTask({ date: d, kind: 'todo', text })} />
             </Card>

@@ -16,6 +16,7 @@ A cozy, offline-first daily & weekly planner you can install on iPhone and Andro
 - **Home**: a greeting, today's schedule at a glance, your top 3 priorities, a card for each work week of the month (4–5) with progress, and a monthly summary with a calendar, achievements, upcoming events, and overall progress.
 - **Weekly**: Monday–Friday work weeks, with a to-do card for each weekday plus a Self Care list. Week 1 starts on the month's first Monday.
 - **Daily**: top priorities, a to-do list, an hourly schedule (09:00–20:00), reminders, a water tracker, and notes.
+- **Share as image**: turn a Daily or Weekly page into a themed picture (Story 9:16 or Post 4:5), then save it or send it to WhatsApp, Instagram Story, or TikTok through the phone's share menu.
 - **Settings**: profile and photo, an optional PIN lock, Indonesian/English, backup download and import, persistent storage, and data reset.
 - Installable PWA that works fully offline. When a new version is deployed, a "New version available" banner appears (checked when the app is reopened and every hour), and the update only happens when the user taps *Reload*.
 

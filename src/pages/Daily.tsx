@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { useNavigate, useParams } from 'react-router-dom';
 import { db, SCHEDULE_HOURS, type Day } from '../db/db';
@@ -10,6 +11,8 @@ import { HeartCheck, NumberHeart } from '../components/HeartCheck';
 import { LineField } from '../components/LineField';
 import { StringList, TaskList } from '../components/TaskList';
 import { WaterTracker } from '../components/WaterTracker';
+import { ShareButton, ShareSheet } from '../components/ShareSheet';
+import { buildDailyContent, DAILY_SECTIONS, dailySectionLabel, DEFAULT_DAILY_SECTIONS, type DailySection } from '../lib/shareContent';
 
 const isISODate = (s: string | undefined): s is string => !!s && /^\d{4}-\d{2}-\d{2}$/.test(s);
 
@@ -21,6 +24,8 @@ export default function Daily() {
   const date = isISODate(params.date) ? params.date : today;
   const go = (iso: string) => navigate(iso === today ? '/daily' : `/daily/${iso}`, { replace: true });
 
+  const [sharing, setSharing] = useState(false);
+  const closeShare = useCallback(() => setSharing(false), []);
   const day = useLiveQuery(() => getDay(date), [date]);
   const tasks = useLiveQuery(() => db.tasks.where('date').equals(date).toArray().then((ts) => ts.sort(byOrder)), [date]);
   const patch = (p: Partial<Omit<Day, 'date'>>) => patchDay(date, p);
@@ -71,6 +76,19 @@ export default function Daily() {
           </button>
         )}
       </div>
+      <div className="share-row">
+        <ShareButton onClick={() => setSharing(true)} />
+      </div>
+      {sharing && (
+        <ShareSheet<DailySection>
+          build={(ctx, include) => buildDailyContent(ctx, day, tasks, include)}
+          fileBase={`dayly-${date}`}
+          options={DAILY_SECTIONS.map((key) => ({ key, label: dailySectionLabel(t, key) }))}
+          defaultOptions={DEFAULT_DAILY_SECTIONS}
+          storageKey="dayly.shareDailySections"
+          onClose={closeShare}
+        />
+      )}
 
       {/* Keyed by date so fields remount (and flush unsaved drafts to the right day) when the date changes. */}
       <div className="daily__grid" key={date}>
