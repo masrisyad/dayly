@@ -631,9 +631,6 @@
 .weekly .card .line-input {
   font-size: 14px;
 }
-.weekly__selfcare {
-  grid-column: 1 / -1;
-}
 
 .credit {
   text-align: center;
@@ -734,9 +731,12 @@
   .home > .home__monthly {
     grid-column: auto;
   }
+  /* A month has 4 or 5 work weeks: keep them all in one row. */
   .home > .home__weeks {
     order: 1;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
     gap: 20px 16px;
   }
   .home__monthly .monthly__top {

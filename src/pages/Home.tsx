@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { useNavigate } from 'react-router-dom';
-import { db, newId, type Profile } from '../db/db';
+import { db, newId, SCHEDULE_HOURS, type Profile } from '../db/db';
 import { byOrder, getDay, patchDay, updateTask } from '../db/repo';
 import { fmt, useI18n } from '../i18n';
 import { addMonths, monthKeyOf, todayISO } from '../lib/dates';
 import { filledPriorities, progress } from '../lib/progress';
-import { getWeekChunks, weekKeyOf } from '../lib/weeks';
+import { weekKeyOf, weeksOfMonth } from '../lib/weeks';
 import { loadMonth, monthStats, weekStats } from '../lib/stats';
 import { asset, type AssetName } from '../lib/assets';
 import { Avatar } from '../components/Avatar';
@@ -17,12 +17,10 @@ import { ProgressBar, ProgressRing } from '../components/Progress';
 import { CrossIcon, StringList } from '../components/TaskList';
 import { InstallBanner } from '../components/InstallBanner';
 
-const QUICK_HOURS = [
-  ['08', '09', '10', '11'],
-  ['13', '14', '15', '16'],
-];
-const WEEK_DECOS: AssetName[] = ['plant', 'purple-flower', 'bear', 'tulip'];
-const WEEK_TONES = ['pink', 'lavender', 'mint', 'yellow'] as const;
+// The whole 09:00–20:00 schedule in two columns.
+const QUICK_HOURS = [SCHEDULE_HOURS.slice(0, 6), SCHEDULE_HOURS.slice(6)];
+const WEEK_DECOS: AssetName[] = ['plant', 'purple-flower', 'bear', 'tulip', 'star'];
+const WEEK_TONES = ['pink', 'lavender', 'mint', 'yellow', 'blue'] as const;
 
 function greetingKey(hour: number) {
   if (hour < 11) return 'morning';
@@ -43,7 +41,7 @@ export default function Home({ profile }: { profile: Profile }) {
 
   const priorities = filledPriorities(todayDay.priorities);
   const top3 = progress(priorities);
-  const month = monthStats(data);
+  const month = monthStats(monthKey, data);
   const activeWeek = weekKeyOf(today);
 
   return (
@@ -115,26 +113,28 @@ export default function Home({ profile }: { profile: Profile }) {
       </Card>
 
       <div className="grid-2 home__weeks">
-        {getWeekChunks(monthKey).map((chunk, i) => {
-          const { tasks, progress: p } = weekStats(chunk.dates, chunk.key, data);
+        {weeksOfMonth(monthKey).map((week, i) => {
+          const { tasks, progress: p } = weekStats(week, data);
           const preview = [...tasks].sort((a, b) => (a.date ?? '9').localeCompare(b.date ?? '9') || byOrder(a, b)).slice(0, 3);
-          const active = chunk.key === activeWeek;
+          const active = week.key === activeWeek;
+          const [mon, fri] = [week.dates[0], week.dates[4]];
           return (
             <Card
-              key={chunk.key}
+              key={week.key}
               tone={active ? 'active' : 'cream'}
               labelTone={WEEK_TONES[i]}
               label={
                 <>
-                  {fmt(t.home.weekly, { n: chunk.week })}
+                  {fmt(t.home.weekly, { n: week.number })}
                   {active && <span className="badge">{t.home.active} ♥</span>}
                 </>
               }
-              onClick={() => navigate(`/weekly/${chunk.key}`)}
+              onClick={() => navigate(`/weekly/${week.key}`)}
             >
               <Deco name={WEEK_DECOS[i]} size={40} style={{ right: -6, top: 22 }} />
               <p className="week-card__range">
-                {fmtDate(chunk.dates[0], { day: 'numeric', month: 'short' })} – {fmtDate(chunk.dates.at(-1)!, { day: 'numeric' })}
+                {fmtDate(mon, { day: 'numeric', month: 'short' })} –{' '}
+                {fmtDate(fri, monthKeyOf(fri) === monthKey ? { day: 'numeric' } : { day: 'numeric', month: 'short' })}
               </p>
               {Array.from({ length: 3 }, (_, j) => {
                 const task = preview[j];
@@ -146,7 +146,7 @@ export default function Home({ profile }: { profile: Profile }) {
                         <span className={`line-input ${task.done ? 'is-done' : ''}`}>{task.text}</span>
                       </>
                     ) : (
-                      <HeartCheck checked={false} label="" onChange={() => navigate(`/weekly/${chunk.key}`)} />
+                      <HeartCheck checked={false} label="" onChange={() => navigate(`/weekly/${week.key}`)} />
                     )}
                   </div>
                 );

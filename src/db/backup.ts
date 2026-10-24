@@ -1,8 +1,10 @@
 import { db, type CalendarEvent, type Day, type Month, type Profile, type Task } from './db';
 import { todayISO } from '../lib/dates';
+import { migratedWeekKey } from '../lib/weeks';
 
 export const BACKUP_APP = 'dayly';
-export const BACKUP_SCHEMA = 1;
+/** 1 = v1.0.0 (month-chunk weeks), 2 = v1.1.0+ (Mon–Fri weeks keyed by Monday). */
+export const BACKUP_SCHEMA = 2;
 
 export interface BackupData {
   profile: Omit<Profile, 'pinHash' | 'pinSalt'> | null;
@@ -51,7 +53,15 @@ export async function createBackup(): Promise<BackupFile> {
 
 /** Upgrades older backup formats to the current schema. Add a step here whenever BACKUP_SCHEMA is bumped. */
 function migrate(file: BackupFile): BackupFile {
-  return file;
+  let f = file;
+  if (f.schemaVersion < 2) {
+    f = {
+      ...f,
+      schemaVersion: 2,
+      data: { ...f.data, tasks: f.data.tasks.map((t) => ({ ...t, weekKey: migratedWeekKey(t) })) },
+    };
+  }
+  return f;
 }
 
 const isArr = (v: unknown): v is unknown[] => Array.isArray(v);

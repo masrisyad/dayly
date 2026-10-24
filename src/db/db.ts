@@ -1,4 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie';
+import { migratedWeekKey } from '../lib/weeks';
 
 export type Lang = 'id' | 'en';
 
@@ -16,7 +17,7 @@ export interface Task {
   id: string;
   /** Set for day tasks; null for weekly Self Care items. */
   date: string | null;
-  weekKey: string; // 'YYYY-MM-W1'..'W4'
+  weekKey: string; // Monday of the task's work week, 'YYYY-MM-DD' (see lib/weeks.ts)
   kind: 'todo' | 'selfcare';
   text: string;
   done: boolean;
@@ -48,7 +49,8 @@ export interface CalendarEvent {
   title: string;
 }
 
-export const SCHEDULE_HOURS = Array.from({ length: 17 }, (_, i) => String(i + 6).padStart(2, '0'));
+/** 09:00–20:00. Entries saved for other hours by v1.0.0 stay in the data but are not shown. */
+export const SCHEDULE_HOURS = Array.from({ length: 12 }, (_, i) => String(i + 9).padStart(2, '0'));
 export const WATER_GLASSES = 8;
 
 export class DaylyDB extends Dexie {
@@ -67,6 +69,17 @@ export class DaylyDB extends Dexie {
       months: 'month',
       events: 'id, date',
     });
+    // v1.1.0: weeks changed from month chunks ('YYYY-MM-W1') to Mon–Fri work weeks keyed by their Monday.
+    this.version(2)
+      .stores({})
+      .upgrade((tx) =>
+        tx
+          .table<Task>('tasks')
+          .toCollection()
+          .modify((task) => {
+            task.weekKey = migratedWeekKey(task);
+          }),
+      );
   }
 }
 

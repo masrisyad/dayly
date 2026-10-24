@@ -12,7 +12,7 @@ describe('backup', () => {
   it('round-trips all data and leaves the PIN out of the file', async () => {
     await db.profile.put({ id: 'me', name: 'Maya', lang: 'id', createdAt: 1, pinHash: 'h', pinSalt: 's' });
     await addTask({ date: '2026-10-24', kind: 'todo', text: 'Buy flowers' });
-    await addTask({ date: null, weekKey: '2026-10-W4', kind: 'selfcare', text: 'Long bath' });
+    await addTask({ date: null, weekKey: '2026-10-26', kind: 'selfcare', text: 'Long bath' });
     await patchDay('2026-10-24', { water: 5, notes: 'hello' });
     await db.events.put({ id: 'e1', date: '2026-10-29', title: 'Birthday dinner' });
     await db.months.put({ month: '2026-10', achievements: ['Gym streak'] });
@@ -38,6 +38,29 @@ describe('backup', () => {
     await addTask({ date: '2026-10-01', kind: 'todo', text: 'Old task' });
     await restoreBackup(parseBackup(empty));
     expect(await db.tasks.count()).toBe(0);
+  });
+
+  it('re-keys weeks when importing a v1.0.0 backup', async () => {
+    const v1 = {
+      app: 'dayly',
+      schemaVersion: 1,
+      exportedAt: '2026-10-20T00:00:00.000Z',
+      data: {
+        profile: null,
+        tasks: [
+          { id: 't1', date: '2026-10-01', weekKey: '2026-10-W1', kind: 'todo', text: 'a', done: false, order: 0 },
+          { id: 't2', date: null, weekKey: '2026-10-W3', kind: 'selfcare', text: 'b', done: false, order: 0 },
+        ],
+        days: [],
+        months: [],
+        events: [],
+      },
+    };
+    const parsed = parseBackup(JSON.stringify(v1));
+    expect(parsed.schemaVersion).toBe(2);
+    await restoreBackup(parsed);
+    expect((await db.tasks.get('t1'))?.weekKey).toBe('2026-09-28');
+    expect((await db.tasks.get('t2'))?.weekKey).toBe('2026-10-19');
   });
 
   it.each([

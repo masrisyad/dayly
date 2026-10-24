@@ -32,10 +32,11 @@ Semua breakpoint memakai **lebar/tinggi layar, bukan orientasi**, sehingga rotas
 
 | Kondisi | Perubahan |
 |---|---|
+| semua ukuran | Mingguan: 5 kartu Senin–Jumat + Self Care (2 kolom di HP). Sekilas Hari Ini: jadwal 09:00–20:00 dalam 2 kolom |
 | ≤ 380px | Kartu Mingguan 1 kolom |
 | ≥ 520px | Sekilas Hari Ini & daftar Ringkasan Bulanan jadi 2 kolom di dalam kartu |
 | ≥ 640px | Konten maks. 760px; Harian 2 kolom |
-| ≥ 1024px | Konten maks. 1120px. Beranda: Sekilas + Ringkasan berdampingan, Minggu 1–4 dalam 4 kolom. Mingguan: 3 kolom. Harian: jarak lebih lega |
+| ≥ 1024px | Konten maks. 1120px. Beranda: Sekilas + Ringkasan berdampingan, semua kartu minggu (4–5) dalam satu baris. Mingguan: 3 kolom (Sen–Jum + Self Care = 2 baris rapi). Harian: jarak lebih lega |
 | tinggi ≤ 500px | Menu bawah ringkas (ikon di samping label, `--nav-h: 50px`) |
 | tinggi ≤ 500px & lebar ≥ 560px | Layar PIN: logo disembunyikan, info di kiri + keypad 58px di kanan |
 

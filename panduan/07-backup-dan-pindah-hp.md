@@ -28,5 +28,6 @@ Isi backup: profil (nama, foto, bahasa), semua tugas, isi Harian, pencapaian, da
 
 - **Impor mengganti semua data** di perangkat tujuan. Data tidak digabung.
 - PIN perangkat tujuan (jika ada) tetap dipakai.
+- Backup dari versi lama (misalnya 1.0.0) tetap bisa diimpor ke versi baru dan otomatis disesuaikan.
 - Backup dari versi Dayly yang lebih baru tidak bisa diimpor ke versi lama. Perbarui aplikasinya dulu (lihat [Pembaruan aplikasi](08-pembaruan-aplikasi.md)).
 - Jika muncul pesan "File ini bukan backup Dayly" atau "File backup ini rusak", pastikan kamu memilih file `.json` yang dibuat dari tombol **Unduh data**.

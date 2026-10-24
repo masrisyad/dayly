@@ -30,7 +30,7 @@ src/
     backup.ts         ekspor/impor backup JSON
   lib/
     dates.ts          helper tanggal lokal 'YYYY-MM-DD'
-    weeks.ts          potongan minggu per bulan (W1–W4)
+    weeks.ts          minggu kerja Senin–Jumat (kunci = tanggal Senin) + migrasi dari v1.0.0
     progress.ts       perhitungan persentase
     stats.ts          agregasi data bulan/minggu untuk Beranda & Mingguan
     pin.ts            hash PIN (SHA-256 + salt)
@@ -59,7 +59,7 @@ main.tsx
      │   ├─ profil punya PIN      → Lock (sekali per buka aplikasi)
      │   └─ selain itu            → HashRouter
      │        ├─ /                  Home
-     │        ├─ /weekly/:week?     Weekly   (week = 'YYYY-MM-W1'..'W4')
+     │        ├─ /weekly/:week?     Weekly   (week = tanggal Senin 'YYYY-MM-DD'; link lama 'YYYY-MM-W1' tetap diterima)
      │        ├─ /daily/:date?      Daily    (date = 'YYYY-MM-DD')
      │        ├─ /settings          Settings
      │        └─ BottomNav

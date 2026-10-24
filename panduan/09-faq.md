@@ -15,8 +15,14 @@ Tidak otomatis. Setiap perangkat punya data sendiri. Untuk memindahkan data, gun
 **Dataku hilang setelah memasang Dayly di iPhone!**
 Di iPhone, data di Safari dan di aplikasi layar utama terpisah. Buka Dayly di Safari, **Unduh data**, lalu **Impor data** di aplikasi yang sudah dipasang.
 
-**Kenapa Minggu 4 isinya lebih dari 7 hari?**
-Dayly membagi bulan menjadi 1–7, 8–14, 15–21, dan 22–akhir bulan, sehingga Minggu 4 berisi 7–10 hari tergantung bulannya.
+**Kenapa halaman Mingguan hanya Senin–Jumat?**
+Mingguan dirancang untuk minggu kerja. Tugas Sabtu/Minggu tetap bisa diisi di halaman Harian, tetapi tidak masuk progres minggu.
+
+**Kenapa tanggal 1 atau 2 tidak ada di Minggu 1?**
+Minggu 1 dimulai dari Senin pertama di bulan itu. Tanggal sebelum Senin pertama ikut minggu terakhir bulan sebelumnya. Lihat [Mingguan](04-mingguan.md#pindah-minggu).
+
+**Jadwalku jam 7 pagi / 9 malam hilang?**
+Sejak versi 1.1.0, jadwal hanya menampilkan jam 09:00–20:00. Isian di jam lain dari versi sebelumnya tidak dihapus, hanya tidak ditampilkan.
 
 **Kenapa ♡ tidak muncul di Prioritas Utama?**
 ♡ baru muncul setelah prioritas diisi teks.

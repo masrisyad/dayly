@@ -9,18 +9,20 @@ Beranda adalah ringkasan harimu, minggu-minggumu, dan bulanmu. Buka lewat tab **
 
 ## Sekilas Hari Ini
 
-- Menampilkan jadwal hari ini pukul **8:00–11:00** dan **13:00–16:00** (diisi dari halaman Harian).
+- Menampilkan seluruh jadwal hari ini pukul **9:00–20:00** dalam dua kolom (diisi dari halaman Harian).
 - **3 Prioritas Utama**: prioritas hari ini. Ketuk ♡ untuk menandai selesai, dan progress bar ikut berubah.
 - Ketuk kartu ini untuk membuka halaman **Harian**.
 
-## Minggu 1–4
+## Kartu minggu
 
-Setiap bulan dibagi menjadi 4 minggu: **1–7**, **8–14**, **15–21**, dan **22–akhir bulan**.
+Setiap kartu adalah satu **minggu kerja Senin–Jumat**. Satu bulan punya **4 atau 5** minggu:
+- Minggu 1 dimulai dari **Senin pertama** di bulan itu.
+- Jumat di minggu terakhir bisa jatuh di bulan berikutnya, misalnya "30 Nov – 4 Des".
 
 Setiap kartu menampilkan:
-- rentang tanggal,
+- rentang tanggal Senin–Jumat,
 - 3 tugas pertama minggu itu (ketuk ♡ untuk menandai selesai),
-- persentase selesai,
+- persentase selesai (tugas Sabtu/Minggu tidak dihitung),
 - badge **Aktif ♥** dan bingkai hijau pada minggu yang sedang berjalan.
 
 Ketuk kartu untuk membuka minggu tersebut di halaman **Mingguan**.
@@ -33,10 +35,10 @@ Ketuk kartu untuk membuka minggu tersebut di halaman **Mingguan**.
   - lingkaran = hari ini.
 
   Ketuk tanggal mana pun untuk membuka hari itu di halaman **Harian**.
-- **Lingkaran %** = persentase selesai seluruh bulan.
+- **Lingkaran %** = persentase selesai seluruh bulan, termasuk tugas akhir pekan.
 - **Pencapaian Utama**: ketik di "Tambah pencapaian…" lalu tekan Enter. Ketuk ✕ untuk menghapus.
 - **Acara Mendatang**: pilih tanggal, ketik nama acara, lalu tekan Enter atau **+**. Acara yang sudah lewat tampil lebih pudar.
 
 ## Di tablet / layar lebar
 
-Sekilas Hari Ini dan Ringkasan Bulanan tampil berdampingan, sementara Minggu 1–4 tampil sejajar dalam satu baris.
+Sekilas Hari Ini dan Ringkasan Bulanan tampil berdampingan, sementara semua kartu minggu tampil sejajar dalam satu baris.

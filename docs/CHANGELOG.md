@@ -8,10 +8,25 @@ Kategori: **Ditambahkan**, **Diubah**, **Diperbaiki**, **Dihapus**, **Keamanan**
 
 ## [Belum dirilis]
 
+## [1.1.0] - 2026-10-24
+
+Berdasarkan feedback v1.0.0.
+
+### Diubah
+- **Mingguan** sekarang memakai minggu kerja kalender **Senin–Jumat**. Minggu 1 dimulai dari Senin pertama di bulan itu, sehingga satu bulan punya 4–5 minggu. Sabtu & Minggu tidak ditampilkan.
+- Progres minggu (halaman Mingguan & kartu minggu di Beranda) hanya menghitung Senin–Jumat + Self Care. % total bulanan tetap mencakup akhir pekan.
+- **Beranda** menampilkan 4–5 kartu minggu sesuai bulan, dengan rentang Senin–Jumat (bisa menyeberang ke bulan berikutnya, mis. "30 Nov – 4 Des"). Di tablet, semuanya tampil dalam satu baris.
+- **Jadwal** di Harian hanya menampilkan jam **09:00–20:00**. Sekilas Hari Ini di Beranda menampilkan seluruh rentang ini dalam dua kolom.
+- Format data: `weekKey` tugas kini berupa tanggal Senin. Database lokal di-upgrade otomatis (Dexie versi 2), dan backup memakai `schemaVersion: 2`.
+
+### Diperbaiki
+- Kompatibilitas: data dan backup dari v1.0.0 otomatis disesuaikan ke minggu baru. Link lama `#/weekly/YYYY-MM-W1` tetap terbuka di minggu yang setara.
+
 ### Dokumentasi
 - Folder `docs/` untuk dokumentasi teknis (arsitektur, model data, backup, PWA & update, tampilan, i18n, deploy & rilis).
 - Folder `panduan/` berisi panduan pengguna dalam Bahasa Indonesia.
 - Changelog dan aturan versi.
+- Panduan Beranda, Mingguan, Harian, Backup, dan FAQ diperbarui untuk minggu Senin–Jumat dan jadwal 09:00–20:00.
 
 ## [1.0.0] - 2026-10-24
 
@@ -34,5 +49,6 @@ Rilis pertama, di-deploy ke https://masrisyad.github.io/dayly/.
 - Footer kredit dengan tautan GitHub & LinkedIn.
 - Deploy otomatis ke GitHub Pages lewat GitHub Actions (test → build → deploy).
 
-[Belum dirilis]: https://github.com/masrisyad/dayly/compare/v1.0.0...HEAD
+[Belum dirilis]: https://github.com/masrisyad/dayly/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/masrisyad/dayly/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/masrisyad/dayly/releases/tag/v1.0.0
