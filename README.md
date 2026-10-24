@@ -3,7 +3,13 @@
 A cozy, offline-first daily & weekly planner you can install on iPhone and Android.
 **All data stays on your device.** There are no accounts, no servers, and no tracking.
 
-[Bahasa Indonesia ↓](#bahasa-indonesia)
+**Live:** https://masrisyad.github.io/dayly/ · [Bahasa Indonesia ↓](#bahasa-indonesia)
+
+| | |
+|---|---|
+| 📖 [**panduan/**](panduan/README.md) | User guide (Indonesian): install, every screen, backup & moving phones, FAQ |
+| 🛠 [**docs/**](docs/README.md) | Technical docs: architecture, data model, backup format, PWA & updates, layout, i18n, deploy & release |
+| 📝 [**CHANGELOG**](docs/CHANGELOG.md) | Version history |
 
 ## Features
 
@@ -73,6 +79,8 @@ Add a new `this.version(n)` to `src/db/db.ts`. Then bump `BACKUP_SCHEMA` in `src
 ---
 
 ## Bahasa Indonesia
+
+📖 **Panduan lengkap: [panduan/](panduan/README.md)** · Dokumentasi teknis: [docs/](docs/README.md) · Riwayat versi: [CHANGELOG](docs/CHANGELOG.md)
 
 Dayly adalah planner harian & mingguan yang bisa dipasang di iPhone dan Android dan bisa dipakai tanpa internet.
 **Semua data tersimpan di perangkatmu.** Tidak ada akun, server, atau pelacakan.
