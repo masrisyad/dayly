@@ -28,6 +28,8 @@ Font di-self-host sehingga tampilan tetap sama saat offline.
    Pemeriksaan dilewati saat offline atau saat update sedang diunduh.
 3. Versi baru diunduh di latar belakang lalu **menunggu**. Banner "Versi baru tersedia" muncul.
 4. Pengguna menekan **Muat ulang** → field yang sedang fokus di-blur dulu agar drafnya tersimpan → service worker baru aktif → halaman dimuat ulang.
+   - `UpdateBanner` memuat ulang halaman sendiri saat `controllerchange`, atau setelah 1,5 detik jika event itu tidak datang. Ini diperlukan karena `vite-plugin-pwa` hanya me-reload halaman yang **sudah dikendalikan** service worker saat dibuka.
+   - Halaman kunjungan pertama, misalnya peluncuran pertama app yang baru dipasang di iPhone (yang bisa terus dilanjutkan iOS berhari-hari), tidak punya controller. Di v1.1.0, tombol Muat ulang pada halaman seperti itu mengaktifkan versi baru tetapi tidak berpindah halaman. Masalah ini diperbaiki di v1.1.1.
 5. Jika pengguna menekan ✕, versi baru dipakai saat aplikasi ditutup dan dibuka lagi.
 
 > Versi 1.0.0 awal (sebelum banner) memakai mode `autoUpdate`. Pengguna versi itu pindah otomatis satu kali ke versi dengan banner.
@@ -49,3 +51,4 @@ Font di-self-host sehingga tampilan tetap sama saat offline.
 1. `npm run build && npm run preview`, lalu buka aplikasi sekali agar service worker terpasang.
 2. Ubah sesuatu, lalu `npm run build` lagi (server preview tidak perlu dimatikan).
 3. Di DevTools console, jalankan `document.dispatchEvent(new Event('visibilitychange'))`. Banner akan muncul dalam beberapa detik.
+4. Uji juga kasus kunjungan pertama: unregister service worker dan hapus cache (Application → Storage → Clear site data), muat halaman sekali (halaman belum dikendalikan), build versi baru, lalu ulangi langkah 3 dan tekan **Muat ulang**. Halaman harus berpindah ke bundle baru.

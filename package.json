@@ -1,7 +1,7 @@
 {
   "name": "dayly",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Dayly — a cozy, offline-first daily & weekly planner PWA. All data stays on your device.",
   "license": "MIT",
   "type": "module",

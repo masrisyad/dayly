@@ -8,6 +8,14 @@ Kategori: **Ditambahkan**, **Diubah**, **Diperbaiki**, **Dihapus**, **Keamanan**
 
 ## [Belum dirilis]
 
+## [1.1.1] - 2026-10-24
+
+### Diperbaiki
+- Tombol **Muat ulang** pada banner "Versi baru tersedia" kini selalu berpindah ke versi baru. Sebelumnya, pada sesi pertama setelah situs dibuka/dipasang, versi baru sudah aktif tetapi halaman tidak berganti dan banner tetap muncul. Ditemukan saat memverifikasi deploy v1.1.0.
+
+### Dokumentasi
+- `docs/pwa-dan-update.md`: penjelasan reload setelah update dan langkah uji kasus kunjungan pertama.
+
 ## [1.1.0] - 2026-10-24
 
 Berdasarkan feedback v1.0.0.
@@ -49,6 +57,7 @@ Rilis pertama, di-deploy ke https://masrisyad.github.io/dayly/.
 - Footer kredit dengan tautan GitHub & LinkedIn.
 - Deploy otomatis ke GitHub Pages lewat GitHub Actions (test → build → deploy).
 
-[Belum dirilis]: https://github.com/masrisyad/dayly/compare/v1.1.0...HEAD
+[Belum dirilis]: https://github.com/masrisyad/dayly/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/masrisyad/dayly/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/masrisyad/dayly/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/masrisyad/dayly/releases/tag/v1.0.0

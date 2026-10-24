@@ -17,4 +17,4 @@ Buka aplikasinya di: **https://masrisyad.github.io/dayly/**
 8. [Pembaruan aplikasi](08-pembaruan-aplikasi.md)
 9. [Tanya jawab (FAQ)](09-faq.md)
 
-Panduan ini berlaku untuk **Dayly versi 1.1.0**. Riwayat perubahan ada di [CHANGELOG](../docs/CHANGELOG.md).
+Panduan ini berlaku untuk **Dayly versi 1.1.1**. Riwayat perubahan ada di [CHANGELOG](../docs/CHANGELOG.md).

@@ -40,7 +40,21 @@ export function UpdateBanner() {
   const reload = () => {
     // Blurring the focused field makes LineField save its draft before the page reloads.
     (document.activeElement as HTMLElement | null)?.blur();
-    setTimeout(() => updateServiceWorker(true), 150);
+    setTimeout(async () => {
+      // vite-plugin-pwa only reloads pages that were already controlled by a service worker when they
+      // loaded. A first-visit page (e.g. the first launch of a freshly installed iPhone app, which iOS
+      // may keep resuming for days) would activate the new version but stay on the old one, so reload
+      // ourselves once the new worker takes over, or after a short wait if no controller change comes.
+      let done = false;
+      const go = () => {
+        if (done) return;
+        done = true;
+        window.location.reload();
+      };
+      navigator.serviceWorker?.addEventListener('controllerchange', go, { once: true });
+      await updateServiceWorker(true);
+      setTimeout(go, 1500);
+    }, 150);
   };
 
   return (
