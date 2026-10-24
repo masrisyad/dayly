@@ -584,6 +584,38 @@
   grid-column: 1 / -1;
 }
 
+.credit {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14px;
+  padding: 8px 0 4px;
+}
+.credit p {
+  margin: 0 0 12px;
+}
+.credit strong {
+  color: var(--ink);
+}
+.credit__links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+.credit__links a {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ebe2d6;
+  border: 1.5px solid var(--card-border);
+  color: var(--ink);
+  transition: transform 0.15s ease;
+}
+.credit__links a:active {
+  transform: scale(0.94);
+}
+
 .update-banner {
   position: fixed;
   left: 50%;

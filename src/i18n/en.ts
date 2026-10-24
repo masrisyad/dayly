@@ -90,6 +90,7 @@ const en = {
     button: 'Install',
     dismiss: 'Later',
   },
+  credit: { rights: 'All rights reserved.' },
   update: {
     title: 'New version available',
     body: 'Your data stays safe.',

@@ -9,6 +9,7 @@ import { ImportButton } from '../components/ImportButton';
 import { useToast } from '../components/Toast';
 import { Avatar } from '../components/Avatar';
 import { BrandHeader } from '../components/BrandHeader';
+import { Credit } from '../components/Credit';
 
 export default function Onboarding() {
   const { t, lang, setLang } = useI18n();
@@ -118,6 +119,7 @@ export default function Onboarding() {
         <ImportButton className="btn btn--ghost btn--block" onResult={toast.show}>
           {t.onboarding.restore}
         </ImportButton>
+        <Credit />
       </div>
       {toast.node}
     </div>

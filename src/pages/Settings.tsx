@@ -7,6 +7,7 @@ import { fileToAvatar } from '../lib/image';
 import { hashPin, isValidPin, newSalt } from '../lib/pin';
 import { Avatar } from '../components/Avatar';
 import { Card, Deco } from '../components/Card';
+import { Credit } from '../components/Credit';
 import { ImportButton } from '../components/ImportButton';
 import { InstallBanner } from '../components/InstallBanner';
 import { LineField } from '../components/LineField';
@@ -104,6 +105,7 @@ export default function Settings({ profile }: { profile: Profile }) {
           {t.settings.reset}
         </button>
       </Card>
+      <Credit />
       {toast.node}
     </div>
   );
