@@ -70,7 +70,7 @@ export default function Home({ profile }: { profile: Profile }) {
 
       <InstallBanner />
 
-      <Card label={t.home.quickView} labelTone="lavender" labelIcon="clock" onClick={() => navigate('/daily')}>
+      <Card className="home__quick" label={t.home.quickView} labelTone="lavender" labelIcon="clock" onClick={() => navigate('/daily')}>
         <div className="quick">
           <div className="quick__slots">
             {QUICK_HOURS.map((col, i) => (
@@ -114,7 +114,7 @@ export default function Home({ profile }: { profile: Profile }) {
         </div>
       </Card>
 
-      <div className="grid-2">
+      <div className="grid-2 home__weeks">
         {getWeekChunks(monthKey).map((chunk, i) => {
           const { tasks, progress: p } = weekStats(chunk.dates, chunk.key, data);
           const preview = [...tasks].sort((a, b) => (a.date ?? '9').localeCompare(b.date ?? '9') || byOrder(a, b)).slice(0, 3);
@@ -157,7 +157,7 @@ export default function Home({ profile }: { profile: Profile }) {
         })}
       </div>
 
-      <Card label={t.home.monthly} labelTone="pink" labelIcon="heart">
+      <Card className="home__monthly" label={t.home.monthly} labelTone="pink" labelIcon="heart">
         <div className="monthly">
           <div className="monthly__top">
             <MiniCalendar

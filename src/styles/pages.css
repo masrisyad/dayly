@@ -660,6 +660,62 @@
   flex: none;
 }
 
+/* ---------- Tablet landscape / wide screens ---------- */
+
+@media (min-width: 1024px) {
+  .shell {
+    max-width: 1120px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  /* Home: Quick View and Monthly Summary side by side, then the four weeks in one row. */
+  .home {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 30px 20px;
+  }
+  .home > * {
+    grid-column: 1 / -1;
+  }
+  .home > .home__quick,
+  .home > .home__monthly {
+    grid-column: auto;
+  }
+  .home > .home__weeks {
+    order: 1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px 16px;
+  }
+  .home__monthly .monthly__top {
+    justify-content: space-around;
+  }
+
+  /* Weekly: three day cards per row, like the weekly design. */
+  .weekly .grid-2 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px 18px;
+  }
+
+  /* Daily: more breathing room around the two columns. */
+  .sheet.daily {
+    padding: 28px 32px 32px;
+  }
+  .daily__grid {
+    gap: 32px 28px;
+    margin-top: 36px;
+  }
+  .daily__header {
+    padding-left: 72px;
+  }
+  .date-note {
+    width: 112px;
+    height: 150px;
+    padding-top: 58px;
+  }
+}
+
 .persist {
   margin-top: 16px;
   padding-top: 12px;
