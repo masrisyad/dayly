@@ -17,7 +17,7 @@ export function Credit() {
   return (
     <footer className="credit">
       <p>
-        © {new Date().getFullYear()} <strong>{AUTHOR}</strong> · Open source (MIT)
+        © {new Date().getFullYear()} <strong>{AUTHOR}</strong>
       </p>
       <div className="credit__links">
         {LINKS.map((l) => (
