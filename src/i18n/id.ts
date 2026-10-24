@@ -144,7 +144,6 @@ const id: Dict = {
     resetConfirm: 'Hapus SEMUA data Dayly di perangkat ini? Unduh backup dulu jika masih perlu.',
     about: 'Tentang',
     version: 'Versi',
-    license: 'Open source dengan lisensi MIT.',
     source: 'Kode sumber',
   },
 };

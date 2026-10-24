@@ -142,7 +142,6 @@ const en = {
     resetConfirm: 'Erase ALL Dayly data on this device? Download a backup first if you need it.',
     about: 'About',
     version: 'Version',
-    license: 'Open source under the MIT license.',
     source: 'Source code',
   },
 };

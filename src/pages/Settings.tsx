@@ -84,9 +84,6 @@ export default function Settings({ profile }: { profile: Profile }) {
         <p style={{ margin: '4px 0' }}>
           <strong>Dayly</strong> · {t.settings.version} {__APP_VERSION__}
         </p>
-        <p className="muted" style={{ margin: '4px 0' }}>
-          {t.settings.license}
-        </p>
         {__REPO_URL__ && (
           <p style={{ margin: '4px 0' }}>
             <a href={__REPO_URL__} target="_blank" rel="noreferrer">
