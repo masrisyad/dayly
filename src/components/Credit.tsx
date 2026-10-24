@@ -1,5 +1,3 @@
-import { useI18n } from '../i18n';
-
 const AUTHOR = 'Risyad Abdala Ramadhan';
 const LINKS = [
   {
@@ -16,11 +14,10 @@ const LINKS = [
 
 /** Author credit shown at the bottom of Settings and the welcome screen. */
 export function Credit() {
-  const { t } = useI18n();
   return (
     <footer className="credit">
       <p>
-        © {new Date().getFullYear()} <strong>{AUTHOR}</strong>. {t.credit.rights}
+        © {new Date().getFullYear()} <strong>{AUTHOR}</strong> · Open source (MIT)
       </p>
       <div className="credit__links">
         {LINKS.map((l) => (

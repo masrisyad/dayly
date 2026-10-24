@@ -92,7 +92,6 @@ const id: Dict = {
     button: 'Pasang',
     dismiss: 'Nanti',
   },
-  credit: { rights: 'Hak cipta dilindungi.' },
   update: {
     title: 'Versi baru tersedia',
     body: 'Datamu tetap aman.',
