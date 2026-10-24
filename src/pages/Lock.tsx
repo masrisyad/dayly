@@ -49,16 +49,18 @@ export default function Lock({ profile, onUnlock }: { profile: Profile; onUnlock
     <div className="shell shell--narrow lock" style={{ paddingBottom: 32 }}>
       <BrandHeader />
       <div className="lock__body">
-        <Avatar src={profile.avatar} size={84} />
-        <h2 className="lock__title">{t.lock.title}</h2>
-        <div className={`pin-dots ${wrong ? 'is-wrong' : ''}`} aria-live="polite">
-          {Array.from({ length: 6 }, (_, i) => (
-            <span key={i} className={i < pin.length ? 'is-filled' : i >= 4 ? 'is-optional' : ''} />
-          ))}
+        <div className="lock__info">
+          <Avatar src={profile.avatar} size={84} />
+          <h2 className="lock__title">{t.lock.title}</h2>
+          <div className={`pin-dots ${wrong ? 'is-wrong' : ''}`} aria-live="polite">
+            {Array.from({ length: 6 }, (_, i) => (
+              <span key={i} className={i < pin.length ? 'is-filled' : i >= 4 ? 'is-optional' : ''} />
+            ))}
+          </div>
+          <p className="error" style={{ minHeight: 20, margin: '4px 0' }}>
+            {wrong ? t.lock.wrong : ''}
+          </p>
         </div>
-        <p className="error" style={{ minHeight: 20, margin: '4px 0' }}>
-          {wrong ? t.lock.wrong : ''}
-        </p>
         <div className="keypad">
           {KEYS.map((k) => (
             <button key={k} type="button" className={`keypad__key keypad__key--${k}`} onClick={() => press(k)} aria-label={k}>

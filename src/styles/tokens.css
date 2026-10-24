@@ -34,4 +34,14 @@
   --nav-h: 72px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-top: env(safe-area-inset-top, 0px);
+  /* Notch / Dynamic Island side in landscape on iPhone. */
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* Short screens (phones held sideways): a slimmer bottom nav leaves room for content. */
+@media (max-height: 500px) {
+  :root {
+    --nav-h: 50px;
+  }
 }

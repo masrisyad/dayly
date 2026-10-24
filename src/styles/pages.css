@@ -181,11 +181,62 @@
   color: var(--pink-deep);
   font-weight: 700;
 }
+.lock__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .lock__forgot {
   margin-top: 22px;
   color: var(--ink-soft);
   text-decoration: underline;
   font-size: 14px;
+}
+
+/* Phone held sideways: avatar + PIN dots on the left, a smaller keypad on the right, no logo. */
+@media (max-height: 500px) and (min-width: 560px) {
+  .shell--narrow.lock {
+    max-width: 720px;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(12px + var(--safe-top));
+    padding-bottom: calc(12px + var(--safe-bottom)) !important;
+  }
+  .lock .brand {
+    display: none;
+  }
+  .lock__body {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      'info keypad'
+      'forgot keypad';
+    align-items: center;
+    justify-items: center;
+    column-gap: 48px;
+  }
+  .lock__info {
+    grid-area: info;
+    align-self: end;
+  }
+  .lock__forgot {
+    grid-area: forgot;
+    align-self: start;
+    margin-top: 8px;
+  }
+  .keypad {
+    grid-area: keypad;
+    grid-template-columns: repeat(3, 58px);
+    gap: 10px 16px;
+    margin-top: 0;
+  }
+  .keypad__key {
+    height: 58px;
+    font-size: 22px;
+  }
 }
 
 /* ---------- Home ---------- */
@@ -621,7 +672,7 @@
   left: 50%;
   bottom: calc(var(--nav-h) + var(--safe-bottom) + 12px);
   transform: translateX(-50%);
-  width: calc(100% - 32px);
+  width: calc(100% - 32px - var(--safe-left) - var(--safe-right));
   max-width: 528px;
   z-index: 40;
   display: flex;
@@ -665,8 +716,8 @@
 @media (min-width: 1024px) {
   .shell {
     max-width: 1120px;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: calc(28px + var(--safe-left));
+    padding-right: calc(28px + var(--safe-right));
   }
 
   /* Home: Quick View and Monthly Summary side by side, then the four weeks in one row. */
