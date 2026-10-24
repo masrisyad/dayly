@@ -16,7 +16,8 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
+      // A new version waits until the user taps "Reload" (see UpdateBanner), so an update never interrupts typing.
+      registerType: 'prompt',
       includeAssets: ['icons/*.png', 'illustrations/*.webp'],
       manifest: {
         name: 'Dayly',

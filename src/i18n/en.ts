@@ -90,6 +90,12 @@ const en = {
     button: 'Install',
     dismiss: 'Later',
   },
+  update: {
+    title: 'New version available',
+    body: 'Your data stays safe.',
+    reload: 'Reload',
+    later: 'Later',
+  },
   lock: {
     title: 'Enter your PIN',
     wrong: 'Wrong PIN, try again.',

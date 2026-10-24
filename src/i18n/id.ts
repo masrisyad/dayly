@@ -92,6 +92,12 @@ const id: Dict = {
     button: 'Pasang',
     dismiss: 'Nanti',
   },
+  update: {
+    title: 'Versi baru tersedia',
+    body: 'Datamu tetap aman.',
+    reload: 'Muat ulang',
+    later: 'Nanti',
+  },
   lock: {
     title: 'Masukkan PIN',
     wrong: 'PIN salah, coba lagi.',

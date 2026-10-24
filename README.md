@@ -11,7 +11,7 @@ A cozy, offline-first daily & weekly planner you can install on iPhone and Andro
 - **Weekly**: a to-do card for every day in the week plus a Self Care list. Weeks follow the month: days 1–7, 8–14, 15–21, and 22–end.
 - **Daily**: top priorities, a to-do list, an hourly schedule (06:00–22:00), reminders, a water tracker, and notes.
 - **Settings**: profile and photo, an optional PIN lock, Indonesian/English, backup download and import, persistent storage, and data reset.
-- Installable PWA that works fully offline.
+- Installable PWA that works fully offline. When a new version is deployed, a "New version available" banner appears (checked when the app is reopened and every hour), and the update only happens when the user taps *Reload*.
 
 ## Your data
 
