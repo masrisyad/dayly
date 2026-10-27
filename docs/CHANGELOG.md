@@ -8,6 +8,9 @@ Kategori: **Ditambahkan**, **Diubah**, **Diperbaiki**, **Dihapus**, **Keamanan**
 
 ## [Belum dirilis]
 
+### Dokumentasi
+- `CLAUDE.md`: commit tidak lagi memakai trailer `Co-Authored-By`, agar hanya pemilik repo yang tercatat sebagai kontributor di GitHub. Riwayat `main` dan tag v1.0.0–v1.2.0 ditulis ulang untuk menghapus trailer tersebut; isi file tidak berubah.
+
 ## [1.2.0] - 2026-10-25
 
 ### Ditambahkan

@@ -25,3 +25,4 @@ Perubahan yang hanya menyentuh dokumentasi tidak menaikkan versi aplikasi.
 - Perubahan skema DB → versi Dexie baru + `BACKUP_SCHEMA` + langkah `migrate()` (lihat `docs/model-data.md`).
 - Sebelum commit: `npx tsc --noEmit`, `npm test`, `npm run build`.
 - Push ke `main` = deploy ke produksi. Minta izin pemilik dulu sebelum push.
+- Commit **tanpa** trailer `Co-Authored-By` (termasuk yang untuk Claude). Pemilik ingin hanya dirinya yang tercatat sebagai kontributor di GitHub.
