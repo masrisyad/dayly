@@ -7,3 +7,6 @@ dev-dist
 
 # Design mockups (reference only, include third-party branding)
 /halaman *.jpeg
+
+# Memori AI bersama (Claude, Codex, Gemini, dll.): lokal saja, jangan pernah di-push
+.ai-memory/
